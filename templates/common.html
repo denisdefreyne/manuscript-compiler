@@ -15,6 +15,16 @@
                 padding: 0;
             }
 
+            .fiction {
+                --line-height: 2rem;
+                --line-height-2: 4rem;
+            }
+
+            .nonfiction {
+                --line-height: 1.3rem;
+                --line-height-2: 2.6rem;
+            }
+
             @media screen {
                 body {
                     margin: 0 auto;
@@ -53,26 +63,37 @@
             p,
             h1,
             h2,
+            h3,
             li,
             pre,
+            blockquote,
             hr {
                 font-size: 12pt;
-                line-height: 2rem;
+                line-height: var(--line-height);
             }
 
             p {
-                text-indent: 0.5in;
-
                 orphans: 1;
                 widows: 1;
             }
 
-            pre {
+            .fiction p {
+                text-indent: 0.5in;
+            }
+
+            .nonfiction p {
+                margin-top: var(--line-height);
+            }
+
+            .fiction pre,
+            .fiction blockquote {
                 padding: 2rem 0 2rem 0.5in;
             }
 
-            blockquote {
-                padding: 2rem 0 2rem 0.5in;
+            .nonfiction pre,
+            .nonfiction blockquote {
+                margin-top: var(--line-height);
+                padding: 0 0 0 0.5in;
             }
 
             /* SEPARATOR */
@@ -161,16 +182,63 @@
                 $endif$
             }
 
-            /* CHAPTER */
+            /* COUNTERS */
+
+            h1 {
+                counter-reset: chapter;
+            }
 
             h2 {
+                counter-reset: section;
+                counter-increment: chapter;
+            }
+
+            h3 {
+                counter-increment: section;
+            }
+
+            /* HEADINGS */
+
+            /* chapter */
+            h2 {
                 padding-top: 10rem;
-                margin-bottom: 2rem;
-                text-align: center;
                 font-weight: normal;
 
                 page-break-before: always;
                 page-break-after: avoid;
+            }
+
+            .fiction h2 {
+                text-align: center;
+            }
+
+            body:has(h3) h2 {
+                font-weight: bold;
+            }
+
+            /* section */
+            h3 {
+                margin-top: var(--line-height-2);
+
+                font-weight: normal;
+            }
+
+            .fiction h3 {
+                text-align: center;
+            }
+
+            .nonfiction h2::before {
+                content: counter(chapter) ".";
+            }
+
+            .nonfiction h3::before {
+                content: counter(chapter) "." counter(section) ".";
+            }
+
+            .nonfiction h2::before,
+            .nonfiction h3::before {
+                display: inline-block;
+                width: 2rem;
             }
 
             /* BOOKMARKS */
@@ -186,10 +254,22 @@
                 -ah-bookmark-level: 2;
                 -ro-pdf-bookmark-level: 2;
             }
+
+            h3 {
+                bookmark-label: content();
+                -ah-bookmark-level: 3;
+                -ro-pdf-bookmark-level: 3;
+            }
         </style>
     </head>
 
-    <body>
+    <body
+        $if(nonfiction)$
+            class="nonfiction"
+        $else$
+            class="fiction"
+        $endif$
+    >
         <!-- title page -->
         <div class="title-page">
             <div class="word-count">about $word_count$ words</div>

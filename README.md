@@ -2,7 +2,7 @@
 
 Command-line arguments:
 
-1. Template name (e.g. `fiction`)
+1. Template name (e.g. `common`)
 2. Input filename
 3. Output filename
 
@@ -29,3 +29,4 @@ Formatting options:
 * `separate_title_page`: Enable to have an entirely separate title page.
   Not compatible with `minimal_header`.
 * `minimal_header`: Enable to have a header without contact information or word count. Useful for synopses. Not compatible with `separate_title_page`.
+* `nonfiction`: Enable to change the format to be more non-fiction friendly (default: `false`)
