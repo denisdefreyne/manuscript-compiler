@@ -328,6 +328,22 @@
                 list-style: none;
             }
 
+            .toc li a {
+                font-weight: bold;
+            }
+
+            .toc li li a {
+                font-weight: normal;
+            }
+
+            .toc li a::after {
+                content: leader('.  ') target-counter(attr(href), page);
+            }
+
+            .toc li li a::after {
+                content: leader(' ') target-counter(attr(href), page);
+            }
+
             li .toc-number {
                 display: inline-block;
                 padding-right: 0.5rem;
