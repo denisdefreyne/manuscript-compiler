@@ -1,6 +1,6 @@
-word_count = 0
+local word_count = 0
 
-count_words = {
+local count_words = {
     Str = function(el)
         -- we don't count a word if it's entirely punctuation:
         if el.text:match("%P") then
