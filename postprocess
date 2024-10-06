@@ -1,6 +1,10 @@
 #!/usr/bin/env ruby
 
-ENV['PATH'] = ENV['PATH'] + ':/opt/homebrew/bin'
+ENV['PATH'] = [
+  __dir__ + '/.venv/bin',
+  '/opt/homebrew/bin',
+  ENV['PATH']
+].join(':')
 
 template_name = ARGV.shift
 input_filename = ARGV.shift
