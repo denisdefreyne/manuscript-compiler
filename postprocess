@@ -21,6 +21,9 @@ system(
     '--lua-filter',
     __dir__ + '/filter-wordcount.lua',
 
+    '--lua-filter',
+    __dir__ + '/filter-footnote.lua',
+
     '--template',
     __dir__ + '/templates/' + template_name + '.html',
 
