@@ -9,12 +9,12 @@ local count_words = {
     end,
 
     Code = function(el)
-        _, n = el.text:gsub("%S+", "")
+        local _, n = el.text:gsub("%S+", "")
         word_count = word_count + n
     end,
 
     CodeBlock = function(el)
-        _, n = el.text:gsub("%S+", "")
+        local _, n = el.text:gsub("%S+", "")
         word_count = word_count + n
     end
 }
