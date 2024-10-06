@@ -252,7 +252,7 @@
             ul ol,
             ol ul,
             ol ol {
-                padding-left: 3rem;
+                padding-left: 2rem;
             }
 
             /* BOOKMARKS */
@@ -307,6 +307,7 @@
             a:link,
             a:visited {
                 color: black;
+                text-decoration: none;
             }
 
             /* TABLE OF CONTENTS */
@@ -325,6 +326,16 @@
 
             .toc li {
                 list-style: none;
+            }
+
+            li .toc-number {
+                display: inline-block;
+                padding-right: 0.5rem;
+                min-width: 1.5rem;
+            }
+
+            li li .toc-number {
+                min-width: 2rem;
             }
         </style>
     </head>

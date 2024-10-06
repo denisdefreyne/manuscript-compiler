@@ -5,6 +5,8 @@
 -- it can be modified to add additional elements as TOC items, to add
 -- more info to each line in the TOC, or to control whether the heading
 -- number is included in the link.
+--
+-- Based on https://github.com/cysouw/toc-css by Michael Cysouw.
 
 local PANDOC_WRITER_OPTIONS = PANDOC_WRITER_OPTIONS
 _ENV = pandoc
@@ -25,7 +27,10 @@ to_toc_item = function(number, text, id, subcontents)
 
     -- add number to toc item
     if number then
-        text = Span({ Str(number), Space() } .. text, { class = 'toc-section-number' })
+        text = Span(
+            { Span(Str(number), { class = 'toc-number' }) } .. text,
+            { class = 'toc-section-number' }
+        )
     end
 
     -- create link to heading if possible
