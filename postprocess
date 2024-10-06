@@ -24,11 +24,18 @@ system(
     '--lua-filter',
     __dir__ + '/filter-footnote.lua',
 
+    '--lua-filter',
+    __dir__ + '/filter-toc.lua',
+
     '--template',
     __dir__ + '/templates/' + template_name + '.html',
 
     '--output',
     output_filename,
+
+    '--standalone',
+
+    '--toc',
 
     '--shift-heading-level-by=1',
 

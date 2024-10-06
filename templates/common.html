@@ -232,7 +232,7 @@
                 text-align: center;
             }
 
-            .nonfiction h2::before {
+            .nonfiction h2:not(.unnumbered)::before {
                 content: counter(chapter) ".";
             }
 
@@ -246,6 +246,15 @@
                 width: 3rem;
             }
 
+            /* LISTS */
+
+            ul ul,
+            ul ol,
+            ol ul,
+            ol ol {
+                padding-left: 3rem;
+            }
+
             /* BOOKMARKS */
 
             h1 {
@@ -254,7 +263,7 @@
                 -ro-pdf-bookmark-level: 1;
             }
 
-            h2 {
+            h2:not(.unnumbered) {
                 bookmark-label: content();
                 -ah-bookmark-level: 2;
                 -ro-pdf-bookmark-level: 2;
@@ -292,6 +301,31 @@
                     margin: 1.3rem 0 0 0;
                 }
             }
+
+            /* LINKS */
+
+            a:link,
+            a:visited {
+                color: black;
+            }
+
+            /* TABLE OF CONTENTS */
+
+            .toc {
+                page-break-before: always;
+            }
+
+            .toc > ul {
+                margin-top: var(--line-height);
+            }
+
+            .toc ul ul {
+                page-break-inside: avoid;
+            }
+
+            .toc li {
+                list-style: none;
+            }
         </style>
     </head>
 
@@ -323,6 +357,17 @@
         </div>
 
         <!-- body -->
-        <div class="body">$body$</div>
+        <div class="body">
+            $if(toc)$
+                $if(nonfiction)$
+                    <div class="toc">
+                        <h2 class="unnumbered">Table of contents</h2>
+                        $toc$
+                    </div>
+                $endif$
+            $endif$
+
+            $body$
+        </div>
     </body>
 </html>
