@@ -13,6 +13,8 @@
             * {
                 margin: 0;
                 padding: 0;
+
+                --font-size: 12pt;
             }
 
             .fiction {
@@ -39,7 +41,7 @@
 
                 @top-right {
                     font-family: "Times New Roman", Times, serif;
-                    font-size: 12pt;
+                    font-size: var(--font-size);
                     line-height: 2rem;
 
                     content: "$author_last_name$ / $title_short$ / " counter(page);
@@ -68,7 +70,7 @@
             pre,
             blockquote,
             hr {
-                font-size: 12pt;
+                font-size: var(--font-size);
                 line-height: var(--line-height);
             }
 
@@ -169,6 +171,9 @@
             .header__author,
             .header__date {
                 text-align: center;
+
+                line-height: var(--font-size);
+                margin-bottom: var(--font-size);
             }
 
             .header {
