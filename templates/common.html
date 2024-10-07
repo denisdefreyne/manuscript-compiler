@@ -328,6 +328,10 @@
                 list-style: none;
             }
 
+            .toc li:has(li) {
+                padding-bottom: var(--line-height);
+            }
+
             .toc li a {
                 font-weight: bold;
             }
@@ -337,11 +341,11 @@
             }
 
             .toc li a::after {
-                content: leader('.  ') target-counter(attr(href), page);
+                content: leader(' ') target-counter(attr(href), page);
             }
 
             .toc li li a::after {
-                content: leader(' ') target-counter(attr(href), page);
+                content: leader('.  ') target-counter(attr(href), page);
             }
 
             li .toc-number {
