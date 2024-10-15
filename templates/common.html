@@ -66,6 +66,7 @@
             h1,
             h2,
             h3,
+            h4,
             li,
             pre,
             blockquote,
@@ -199,7 +200,12 @@
             }
 
             h3 {
+                counter-reset: subsection;
                 counter-increment: section;
+            }
+
+            h4 {
+                counter-increment: subsection;
             }
 
             /* HEADINGS */
@@ -221,6 +227,11 @@
                 font-weight: bold;
             }
 
+            .nonfiction h2:not(.unnumbered)::before {
+                content: counter(chapter) ".";
+                width: 3rem;
+            }
+
             /* section */
             h3 {
                 margin-top: var(--line-height-2);
@@ -232,18 +243,29 @@
                 text-align: center;
             }
 
-            .nonfiction h2:not(.unnumbered)::before {
-                content: counter(chapter) ".";
-            }
-
             .nonfiction h3::before {
                 content: counter(chapter) "." counter(section) ".";
+                width: 3rem;
             }
 
+            /* subsection */
+            h4 {
+                margin-top: var(--line-height-2);
+
+                font-weight: normal;
+            }
+
+            .nonfiction h4::before {
+                content: counter(chapter) "." counter(section) "." counter(subsection) ".";
+                width: 4rem;
+            }
+
+            /* numbers */
             .nonfiction h2::before,
-            .nonfiction h3::before {
-                display: inline-block;
-                width: 3rem;
+            .nonfiction h3::before,
+            .nonfiction h4::before {
+              display: inline-block;
+              font-variant-numeric: tabular-nums;
             }
 
             /* LISTS */
@@ -280,6 +302,12 @@
                 bookmark-label: content();
                 -ah-bookmark-level: 3;
                 -ro-pdf-bookmark-level: 3;
+            }
+
+            h4 {
+                bookmark-label: content();
+                -ah-bookmark-level: 4;
+                -ro-pdf-bookmark-level: 4;
             }
 
             /* FOOTNOTES */
@@ -323,12 +351,21 @@
                 page-break-before: always;
             }
 
-            .toc > ul {
+            .toc ul {
                 margin-top: var(--line-height);
             }
 
             .toc ul ul {
                 page-break-inside: avoid;
+                margin-top: 0;
+            }
+
+            .toc ul {
+                padding-left: 2rem;
+            }
+
+            .toc ul ul {
+                padding-left: 2.5rem;
             }
 
             .toc li {
@@ -337,6 +374,10 @@
 
             .toc li:has(li) {
                 padding-bottom: var(--line-height);
+            }
+
+            .toc li li:has(li) {
+                padding-bottom: 0;
             }
 
             .toc li a {
@@ -359,10 +400,15 @@
                 display: inline-block;
                 padding-right: 0.5rem;
                 min-width: 1.5rem;
+                font-variant-numeric: tabular-nums;
             }
 
             li li .toc-number {
                 min-width: 2rem;
+            }
+
+            li li li .toc-number {
+                min-width: 3rem;
             }
         </style>
     </head>
