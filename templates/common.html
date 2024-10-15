@@ -248,11 +248,18 @@
 
             /* LISTS */
 
-            ul ul,
-            ul ol,
-            ol ul,
-            ol ol {
+            ul,
+            ol {
                 padding-left: 2rem;
+            }
+
+            .fiction ul,
+            .fiction ol {
+                margin: var(--line-height) 0;
+            }
+
+            li > p:first-child {
+                text-indent: 0;
             }
 
             /* BOOKMARKS */
