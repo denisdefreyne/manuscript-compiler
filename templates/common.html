@@ -347,7 +347,10 @@
 
             @media print {
                 a[href^="#"]::after {
-                    content: " on page " target-counter(attr(href), page) ""
+                    content: " on page " target-counter(attr(href), page);
+
+                     /* weasyprint workaround -- see https://github.com/Kozea/WeasyPrint/issues/1521#issuecomment-993532722 */
+                    white-space: pre;
                 }
             }
 
