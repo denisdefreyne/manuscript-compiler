@@ -345,6 +345,12 @@
                 text-decoration: none;
             }
 
+            @media print {
+                a[href^="#"]::after {
+                    content: " on page " target-counter(attr(href), page) ""
+                }
+            }
+
             /* TABLE OF CONTENTS */
 
             .toc {
