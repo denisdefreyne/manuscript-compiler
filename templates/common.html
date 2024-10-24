@@ -95,6 +95,19 @@
                 list-style-type: "•\002003";
             }
 
+            .annotation {
+                color: hsl(0, 100%, 15%);
+                background: hsl(0, 100%, 95%);
+            }
+
+            .annotation::before {
+                content: "[";
+            }
+
+            .annotation::after {
+                content: "]";
+            }
+
             .fiction p {
                 text-indent: 0.5in;
             }
