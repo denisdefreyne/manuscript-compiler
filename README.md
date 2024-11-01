@@ -1,10 +1,16 @@
 # Manuscript format
 
+Command: `bin/build-manuscript`
+
 Command-line arguments:
 
 1. Template name (e.g. `common`)
 2. Input filename
 3. Output filename
+
+Example:
+
+    % bin/build-manuscript common examples/nonfiction.md examples/nonfiction.pdf
 
 Document metadata:
 

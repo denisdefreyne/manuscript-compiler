@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
 
+root = __dir__ + '/..'
+
 ENV['PATH'] = [
-  __dir__ + '/.venv/bin',
+  root + '/.venv/bin',
   '/opt/homebrew/bin',
   ENV['PATH']
 ].join(':')
@@ -21,16 +23,16 @@ system(
     'weasyprint',
 
     '--lua-filter',
-    __dir__ + '/filter-wordcount.lua',
+    root + '/filter-wordcount.lua',
 
     '--lua-filter',
-    __dir__ + '/filter-footnote.lua',
+    root + '/filter-footnote.lua',
 
     '--lua-filter',
-    __dir__ + '/filter-toc.lua',
+    root + '/filter-toc.lua',
 
     '--template',
-    __dir__ + '/templates/' + template_name + '.html',
+    root + '/templates/' + template_name + '.html',
 
     '--output',
     output_filename,
