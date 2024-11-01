@@ -13,6 +13,8 @@ output_filename = ARGV.shift
 system(
     '/opt/homebrew/bin/pandoc',
 
+    '--from=markdown',
+
     '--wrap=none',
 
     '--pdf-engine',
