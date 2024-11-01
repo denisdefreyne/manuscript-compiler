@@ -8,6 +8,8 @@ nonfiction: true
 separate_title_page: true
 minimal_header: true
 
+author_first_name: "John"
+author_last_name: "Smith"
 author_pronouns: "he/him"
 author_phone: "+49 1234 2345 123"
 author_email_address: "hello@example.com"

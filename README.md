@@ -1,4 +1,8 @@
-# Manuscript format
+# Manuscript builder
+
+Creates a nicely formatted PDF file (or HTML file, …) from a Markdown input file.
+
+![Screenshot](./readme-screenshot.png)
 
 Command: `bin/build-manuscript`
 
@@ -10,7 +14,7 @@ Command-line arguments:
 
 Example:
 
-    % bin/build-manuscript common examples/nonfiction.md examples/nonfiction.pdf
+    % bin/build-manuscript common examples/fiction-short-story.md examples/fiction-short-story.pdf
 
 Document metadata:
 
