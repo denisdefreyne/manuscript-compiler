@@ -4,6 +4,16 @@ Creates a nicely formatted PDF file (or HTML file, …) from a Markdown input fi
 
 ![Screenshot](./readme-screenshot.png)
 
+## Requirements
+
+Python 3.11 or newer.
+
+## Setup
+
+Run `make` to install dependencies.
+
+## Usage
+
 Command: `bin/compile-manuscript`
 
 Command-line arguments:
