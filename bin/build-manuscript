@@ -12,36 +12,44 @@ template_name = ARGV.shift
 input_filename = ARGV.shift
 output_filename = ARGV.shift
 
-system(
-    '/opt/homebrew/bin/pandoc',
+ext = File.extname(output_filename)
 
-    '--from=markdown',
+args = []
 
-    '--wrap=none',
+args << '/opt/homebrew/bin/pandoc'
 
-    '--pdf-engine',
-    'weasyprint',
+args << '--from=markdown'
 
-    '--lua-filter',
-    root + '/filter-wordcount.lua',
+args << '--wrap=none'
 
-    '--lua-filter',
-    root + '/filter-footnote.lua',
+if ext == '.pdf'
+  args << '--pdf-engine'
+  args << 'weasyprint'
+end
 
-    '--lua-filter',
-    root + '/filter-toc.lua',
+args << '--lua-filter'
+args << root + '/filter-wordcount.lua'
 
-    '--template',
-    root + '/templates/' + template_name + '.html',
+args << '--lua-filter'
+args << root + '/filter-footnote.lua'
 
-    '--output',
-    output_filename,
+args << '--lua-filter'
+args << root + '/filter-toc.lua'
 
-    '--standalone',
+if ext == '.pdf'
+  args << '--template'
+  args << root + '/templates/' + template_name + '.html'
+end
 
-    '--toc',
+args << '--output'
+args << output_filename
 
-    '--shift-heading-level-by=1',
+args << '--standalone'
 
-    input_filename,
-)
+args << '--toc'
+
+args << '--shift-heading-level-by=1'
+
+args << input_filename
+
+system(*args)
