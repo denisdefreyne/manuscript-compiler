@@ -1,6 +1,6 @@
 # Manuscript compiler
 
-Creates a nicely formatted PDF file (or HTML file, …) from a Markdown input file.
+From a Markdown input file, creates a PDF file following the [proper manuscript format](https://www.shunn.net/format/introduction.html).
 
 ![Screenshot](./readme-screenshot.png)
 
