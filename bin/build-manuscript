@@ -28,13 +28,13 @@ if ext == '.pdf'
 end
 
 args << '--lua-filter'
-args << root + '/filter-wordcount.lua'
+args << root + '/filters/wordcount.lua'
 
 args << '--lua-filter'
-args << root + '/filter-footnote.lua'
+args << root + '/filters/footnote.lua'
 
 args << '--lua-filter'
-args << root + '/filter-toc.lua'
+args << root + '/filters/toc.lua'
 
 if ext == '.pdf'
   args << '--template'
