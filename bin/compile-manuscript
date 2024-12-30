@@ -36,7 +36,7 @@ args << root + '/filters/footnote.lua'
 args << '--lua-filter'
 args << root + '/filters/toc.lua'
 
-if ext == '.pdf'
+if ['.pdf', '.html'].include?(ext)
   args << '--template'
   args << root + '/templates/' + template_name + '.html'
 end
