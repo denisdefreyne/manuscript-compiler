@@ -51,7 +51,7 @@ section_to_toc_item = function(div)
     local number = heading.attributes.number
 
     -- bail if this is not supposed to be included in the toc
-    if not number and heading.classes:includes 'unlisted' then
+    if not number and heading.classes:includes 'unnumbered' then
         return {}
     end
 

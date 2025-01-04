@@ -54,9 +54,12 @@ Est qui quo retro. Ut ut pbr&b. Dolores tattooed xoxo synth. Normcore dreamcatch
 
 Park quia truffaut tousled nobis poutine sustainable maxime. Pug similique laborum aut locavore. Quis ipsa voluptatem offal.
 
-### Expedita facilis doloremque
+::: {.aside}
+
+### Expedita facilis doloremque {.unnumbered}
 
 Mustache minima est. Authentic swag sunt flannel consequuntur ut. Skateboard eum stumptown disrupt iphone helvetica freegan. Placeat raw denim kombucha stumptown ut. Esse knausgaard taxidermy fugit quidem eveniet 3 wolf moon sartorial.
+:::
 
 ### Carry chillwave neque ab synth
 

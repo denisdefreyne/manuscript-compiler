@@ -234,21 +234,21 @@
 
             /* COUNTERS */
 
-            h1 {
+            h1:not(.unnumbered) {
                 counter-reset: chapter;
             }
 
-            h2 {
+            h2:not(.unnumbered) {
                 counter-reset: section;
                 counter-increment: chapter;
             }
 
-            h3 {
+            h3:not(.unnumbered) {
                 counter-reset: subsection;
                 counter-increment: section;
             }
 
-            h4 {
+            h4:not(.unnumbered) {
                 counter-increment: subsection;
             }
 
@@ -316,6 +316,34 @@
             .nonfiction h4::before {
               display: inline-block;
               font-variant-numeric: tabular-nums;
+            }
+
+            /* ASIDE */
+
+            .nonfiction .aside {
+              margin: var(--line-height) 0;
+              padding: 1rem;
+
+              border: 0.5pt solid black;
+
+              page-break-inside: avoid;
+            }
+
+            .nonfiction .aside h2,
+            .nonfiction .aside h3,
+            .nonfiction .aside h4 {
+              margin-top: 0;
+              padding-top: 0;
+
+              font-weight: bold;
+            }
+
+            .nonfiction .aside h2::before,
+            .nonfiction .aside h3::before,
+            .nonfiction .aside h4::before {
+              content: "";
+
+              width: auto;
             }
 
             /* LISTS */
@@ -473,18 +501,14 @@
         </style>
     </head>
 
-    <body
-        $if(nonfiction)$
-            class="nonfiction"
-        $else$
-            class="fiction"
-        $endif$
-    >
+    <body $if(nonfiction)$ class="nonfiction" $else$ class="fiction" $endif$>
         <!-- title page -->
         <div class="title-page">
             <div class="word-count">about $word_count$ words</div>
             <div class="contact">
-                <div>$author_first_name$ $author_last_name$ ($author_pronouns$)</div>
+                <div>
+                    $author_first_name$ $author_last_name$ ($author_pronouns$)
+                </div>
                 <div>$author_address_line_1$</div>
                 <div>$author_address_line_2$</div>
                 <div>$author_address_line_3$</div>
@@ -493,25 +517,19 @@
             </div>
             <div class="header">
                 <h1>$title$</h1>
-                <div class="header__author">
-                    by $byline$
-                </div>
+                <div class="header__author">by $byline$</div>
                 <div class="header__date">$date$</div>
             </div>
         </div>
 
         <!-- body -->
         <div class="body">
-            $if(toc)$
-                $if(nonfiction)$
-                    <div class="toc">
-                        <h2 class="unnumbered">Table of contents</h2>
-                        $toc$
-                    </div>
-                $endif$
-            $endif$
-
-$body$
+            $if(toc)$ $if(nonfiction)$
+            <div class="toc">
+                <h2 class="unnumbered">Table of contents</h2>
+                $toc$
+            </div>
+            $endif$ $endif$ $body$
         </div>
     </body>
 </html>
