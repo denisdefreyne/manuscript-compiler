@@ -8,9 +8,11 @@ From a Markdown input file, creates a PDF file following the [proper manuscript 
 
 Python 3.11 or newer.
 
+Pandoc.
+
 ## Setup
 
-Run `make` to install dependencies.
+Run `make` to install Python dependencies.
 
 ## Usage
 
