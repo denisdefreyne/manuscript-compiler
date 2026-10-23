@@ -2,3 +2,4 @@ up:
   - ruby
   - homebrew: python3
   - homebrew: pandoc
+  - homebrew: pango
